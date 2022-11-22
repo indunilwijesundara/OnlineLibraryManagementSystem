@@ -46,7 +46,7 @@ else{?>
 
  <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-books.php';">
                       <div class="alert alert-success back-widget-set text-center">
-                            <i class="fa fa-book fa-5x"></i>
+                      <img style="width:80px;height:70px;" src="assets/img/book.png">
 <?php 
 $sql ="SELECT id from tblbooks ";
 $query = $dbh -> prepare($sql);
@@ -57,14 +57,14 @@ $listdbooks=$query->rowCount();
 
 
                             <h3><?php echo htmlentities($listdbooks);?></h3>
-                      Books Listed
+                      Listed Books
                         </div>
                     </div>
 
             
                  <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-issued-books.php';">
-                      <div class="alert alert-info back-widget-set text-center">
-                            <i class="fa fa-bars fa-5x"></i>
+                      <div class="alert alert-success back-widget-set text-center">
+                      <img style="width:60px;height:70px;"src="assets/img/listed.png" >
 <?php 
 $sql1 ="SELECT id from tblissuedbookdetails ";
 $query1 = $dbh -> prepare($sql1);
@@ -74,13 +74,13 @@ $issuedbooks=$query1->rowCount();
 ?>
 
                             <h3><?php echo htmlentities($issuedbooks);?> </h3>
-                           Times Book Issued
+                           Borrowed Books 
                         </div>
                     </div>
              
                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-issued-books.php';">
-                      <div class="alert alert-warning back-widget-set text-center">
-                            <i class="fa fa-recycle fa-5x"></i>
+                      <div class="alert alert-success back-widget-set text-center">
+                      <img style="width:70px;height:70px;"src="assets/img/returned.png" >
 <?php 
 $status=1;
 $sql2 ="SELECT id from tblissuedbookdetails where RetrunStatus=:status";
@@ -92,12 +92,12 @@ $returnedbooks=$query2->rowCount();
 ?>
 
                             <h3><?php echo htmlentities($returnedbooks);?></h3>
-                          Times  Books Returned
+                          Returned Books
                         </div>
                     </div>
                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-students.php';">
-                      <div class="alert alert-danger back-widget-set text-center">
-                            <i class="fa fa-users fa-5x"></i>
+                      <div class="alert alert-success back-widget-set text-center">
+                      <img style="width:70px;height:70px;"src="assets/img/students.png" >
                             <?php 
 $sql3 ="SELECT id from tblstudents ";
 $query3 = $dbh -> prepare($sql3);
@@ -113,12 +113,11 @@ $regstds=$query3->rowCount();
         </div>
 
 
-
- <div class="row">
+ <div class="bottomdiv row">
 
  <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-authors.php';">
                       <div class="alert alert-success back-widget-set text-center">
-                            <i class="fa fa-user fa-5x"></i>
+                      <img style="width:90px;height:70px;"src="assets/img/auth.png" >
 <?php 
 $sql4 ="SELECT id from tblauthors ";
 $query4 = $dbh -> prepare($sql4);
@@ -129,14 +128,14 @@ $listdathrs=$query4->rowCount();
 
 
                             <h3><?php echo htmlentities($listdathrs);?></h3>
-                      Authors Listed
+                      Listed Authors
                         </div>
                     </div>
 
             
                  <div class="col-md-3 col-sm-3 rscol-xs-6" onclick="window.location = 'manage-categories.php';">
-                      <div class="alert alert-info back-widget-set text-center">
-                            <i class="fa fa-file-archive-o fa-5x"></i>
+                      <div class="alert alert-success back-widget-set text-center">
+                      <img style="width:70px;height:70px;"src="assets/img/cat.png" >
 <?php 
 $sql5 ="SELECT id from tblcategory ";
 $query5 = $dbh -> prepare($sql5);

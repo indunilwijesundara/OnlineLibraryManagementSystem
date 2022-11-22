@@ -15,12 +15,21 @@
  ============================================================ */
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     line-height: 28px;
 }
 
 .havbarheader {
     height: 65px;
+}
+
+.Back-h {
+    background-image: url("back1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .navbartop img {
@@ -31,7 +40,7 @@ body {
 .navbartop h4 {
     font-weight: bold;
     padding-top: 20px;
-    color: rgb(159, 3, 243);
+    color: rgb(132, 4, 4);
 }
 
 .set-radius-zero {
@@ -41,20 +50,24 @@ body {
 }
 
 .content-wrapper {
-    margin-top: 40px;
-    min-height: 800px;
-    padding-bottom: 90px;
+    min-height: auto;
+    padding-bottom: 100px;
 }
 
 .header-line {
+    text-align: center;
     font-weight: 900;
     padding-bottom: 25px;
-    border-bottom: 1px solid #eeeeee;
+    /* border-bottom: 1px solid #eeeeee; */
     text-transform: uppercase;
 }
 
 .pad-botm {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.Bodydiv {
+    width: 100%;
 }
 
 
@@ -68,30 +81,35 @@ body {
 }
 
 #menu-top a {
-    color: #000;
+    color: rgb(255, 254, 254);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
     padding: 25px 15px 25px 15px;
     text-transform: uppercase;
+    /* background-color: #920303; */
+}
+
+#menu-top a:hover {
+    color: #000;
 }
 
 .menu-section {
-    background-color: #f7f7f7;
-    border-bottom: 5px solid #9170E4;
-    width: 100%
+    background-color: #920303;
+    border-bottom: 5px solid #660108;
+    width: 100%;
 }
 
 .menu-top-active {
-    background-color: #676262;
+    background-color: #920303;
 }
 
 .navbar-inverse {
-    background-color: #FFF;
+    background-color: rgb(255, 255, 255);
     border-color: rgba(155, 153, 153, 0.23);
 }
 
 .navbar {
-    min-height: 90px;
+    min-height: 80px;
     margin-bottom: 0px;
 }
 
@@ -105,6 +123,56 @@ body {
     border: 1px solid black;
 }
 
+.btn-danger {
+    color: rgb(255, 255, 255);
+    background-color: #961111;
+    border-color: #000000;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open>.dropdown-toggle.btn-danger {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-color: #7a0703;
+}
+
+
+/* ==================================================
+Book card Styles
+===================================================*/
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 175px;
+    text-align: center;
+    font-family: arial;
+    margin: 10px;
+    line-height: 5px;
+}
+
+.category {
+    color: grey;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.auth {
+    color: rgb(43, 42, 42);
+    font-size: 10px;
+}
+
+.bookname {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
+
 
 /* =============================================================
    DASHBOARD STYLES
@@ -115,13 +183,44 @@ body {
     height: 60px;
 }
 
+.alert-success {
+    color: #000000;
+    background-color: #dff0d8;
+    border-color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.alert-success:hover {
+    transform: scale(0.9);
+}
+
+.alert-success hr {
+    border-top-color: #000000;
+}
+
+.alert-success .alert-link {
+    color: #000000;
+}
+
 .chat-widget-main {
     max-height: 330px;
     overflow: auto;
 }
 
 .slide-bdr {
-    border: 5px solid #9170E4
+    /* border: 5px solid #961111; */
+}
+
+.img-responsive,
+.thumbnail>img,
+.thumbnail a>img,
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+    display: block;
+    width: 100% \9;
+    max-width: 100%;
+    height: 500px;
+    background-size: cover;
 }
 
 .chat-widget-left:after {
@@ -130,7 +229,7 @@ body {
     border: solid transparent;
     content: " ";
     position: absolute;
-    border-top-color: #F70E62;
+    border-top-color: #f70e62;
     border-width: 15px;
     margin-left: -15px;
 }
@@ -143,7 +242,7 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     position: relative;
-    border: 1px solid #F70E62;
+    border: 1px solid #f70e62;
     font-size: 12px;
 }
 
@@ -153,7 +252,7 @@ body {
     border: solid transparent;
     content: " ";
     position: absolute;
-    border-top-color: #5AA8CC;
+    border-top-color: #5aa8cc;
     border-width: 15px;
     margin-left: -15px;
 }
@@ -166,7 +265,7 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
     position: relative;
-    border: 1px solid #5AA8CC;
+    border: 1px solid #5aa8cc;
     font-size: 12px;
 }
 
@@ -241,7 +340,7 @@ body {
     font-size: 13px;
     background-color: #f7f7f7;
     text-align: right;
-    border-top: 5px solid #9170E4;
+    border-top: 5px solid #5f0303;
 }
 
 .footer-section a,
