@@ -31,13 +31,18 @@ else{?>
     <!------MENU SECTION START-->
     <?php include('includes/header.php');?>
     <!-- MENU SECTION END-->
-    <div class="content-wrapper">
-        <div class="container">
-
+    <div class="home-container-wrapper">
+        <div class="home-container">
+            <div class="himediv">
+                <img class="home" style="width: 100%;heigth: 500px " src="assets/img/home.jpg" />
+                <div class="centered">
+                    <p class="centertext">TRINCOMALEE CAMPUS LIBRARY</h1>
+                </div>
+            </div>
 
             <div class="row">
 
-                <div class="col-md-12">
+                <div class="booktable col-md-12">
 
                     <?php $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
 $query = $dbh -> prepare($sql);

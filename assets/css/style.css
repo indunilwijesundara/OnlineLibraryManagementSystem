@@ -178,6 +178,47 @@ Book card Styles
    DASHBOARD STYLES
  ============================================================ */
 
+.home-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.centered {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5f0303;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.centered :hover {
+    opacity: 0.7;
+    transform: scale(0.9);
+}
+
+.centertext {
+    margin: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: arial;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.himediv {
+    height: auto;
+    width: auto;
+    margin-bottom: 30px;
+}
+
+.booktable {
+    display: flex;
+    justify-content: center;
+}
+
 .img-comments {
     border: 3px double #e1e1e1;
     height: 60px;

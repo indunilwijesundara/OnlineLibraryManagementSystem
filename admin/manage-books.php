@@ -119,17 +119,41 @@ header('location:manage-books.php');
                                             <th>Author</th>
                                             <th>ISBN</th>
                                             <th>Image</th>
-                                            <th>Availble/Not</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
+                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
+
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
-if($query->rowCount() > 0)
+
+
+$sq="SELECT BookId FROM tblissuedbookdetails";
+$q=$dbh -> prepare($sq);
+$q->execute();
+$r=$q->fetchAll(PDO::FETCH_OBJ);
+echo htmlentities($r->BookId);
+$cn=1;
+$B="";
+if($q->rowCount()> 0){
+    foreach($r as $res){
+        ?>
+                                        <p>
+                                            <?php 
+                                                    
+                                                   $B= htmlentities($res->BookId);                            
+            ?>
+                                        </p>
+                                        <?php $cn=$cn+1;
+    }
+}
+
+
+if($query->rowCount()> 0)
 {
 foreach($results as $result)
 {               ?>
@@ -144,13 +168,33 @@ foreach($results as $result)
                                                     width="75px" height="75px">
                                             </td>
                                             <td class="center">
+                                                <?php 
+                                                if($B==htmlentities($result->id)){
+                                                    ?>
+                                                <a href="#" class="btn btn-danger btn-xs">Not Available</a>
+                                                <?php
+                                                }
+                                                else{
+                                                    ?>
+                                                <a href="#" class="btn btn-success btn-xs">Available</a>
+                                                <?php
+                                                }
+
+
+                                           
+                                           ?>
+
+                                            </td>
+
+                                            <td class="center">
 
                                                 <a
                                                     href="edit-book.php?bookid=<?php echo htmlentities($result->bookid);?>"><button
                                                         class="btn btn-primary"><i class="fa fa-edit "></i>
                                                         Edit</button>
                                                     <a href="manage-books.php?del=<?php echo htmlentities($result->bookid);?>"
-                                                        onclick="return confirm('Are you sure you want to delete?');"" >  <button class="
+                                                        onclick="return confirm('Are you sure you want to delete?');">
+                                                        <button class="
                                                         btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
                                             </td>
                                         </tr>
