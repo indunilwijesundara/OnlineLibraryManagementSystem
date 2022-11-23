@@ -45,7 +45,7 @@ header('location:manage-books.php');
 
 <body>
     <!------MENU SECTION START-->
-    <?php include('includes/header.php');?>
+    <?php include('includes/headermanagebook.php');?>
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">

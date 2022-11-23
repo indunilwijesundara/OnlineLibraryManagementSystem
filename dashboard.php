@@ -82,10 +82,31 @@ $returnedbooks=$query2->rowCount();
                         Books Not Returned Yet
                     </div>
                 </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'availablebooks.php';">
+                    <div class="alert alert-success back-widget-set text-center">
+                        <i class="fa fa-book fa-5x"></i>
+                        <?php 
+$rsts=0;
+$sql2 ="SELECT id from tblissuedbookdetails where StudentID=:sid and RetrunStatus=:rsts";
+$query2 = $dbh -> prepare($sql2);
+$query2->bindParam(':sid',$sid,PDO::PARAM_STR);
+$query2->bindParam(':rsts',$rsts,PDO::PARAM_STR);
+$query2->execute();
+$results2=$query2->fetchAll(PDO::FETCH_OBJ);
+$returnedbooks=$query2->rowCount();
+?>
+
+                        <h3><?php echo htmlentities($returnedbooks);?></h3>
+                        Available Books
+                    </div>
+                </div>
+
+
+
+
+
             </div>
-
-
-
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->

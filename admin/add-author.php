@@ -51,7 +51,7 @@ header('location:manage-authors.php');
 
 <body>
     <!------MENU SECTION START-->
-    <?php include('includes/header.php');?>
+    <?php include('includes/headerauth.php');?>
     <!-- MENU SECTION END-->
     <div class="content-wra">
         <div class="content-wrapper">

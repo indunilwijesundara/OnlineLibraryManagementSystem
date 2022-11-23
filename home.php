@@ -35,39 +35,12 @@ else{?>
         <div class="home-container">
             <div class="himediv">
                 <img class="home" style="width: 100%;heigth: 500px " src="assets/img/home.jpg" />
-                <div class="centered">
+                <!-- <div class="centered">
                     <p class="centertext">TRINCOMALEE CAMPUS LIBRARY</h1>
-                </div>
+                </div> -->
             </div>
 
-            <div class="row">
 
-                <div class="booktable col-md-12">
-
-                    <?php $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{               ?>
-
-
-                    <div class="col-md-6 card">
-                        <img src="admin/image/<?php echo htmlentities($result->BookPrice);?>" width="125px"
-                            height="125px">
-                        <h4 class="bookname"> <?php echo htmlentities($result->BookName);?></h4>
-                        <p class="category"><?php echo htmlentities($result->CategoryName);?></p>
-                        <p class="auth"><?php echo htmlentities($result->AuthorName);?></p>
-
-                    </div>
-
-                    <?php $cnt=$cnt+1;}} ?>
-                </div>
-
-            </div>
 
         </div>
     </div>
