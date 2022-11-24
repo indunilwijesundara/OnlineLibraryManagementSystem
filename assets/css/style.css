@@ -50,7 +50,7 @@ body {
 }
 
 .content-wrapper {
-    min-height: auto;
+    min-height: 100%;
     padding-bottom: 100px;
 }
 
@@ -376,6 +376,7 @@ Book card Styles
  ============================================================ */
 
 .footer-section {
+    height: 100px;
     padding: 25px 50px 25px 50px;
     color: #000;
     font-size: 13px;
@@ -387,4 +388,54 @@ Book card Styles
 .footer-section a,
 .footer-section a:hover {
     color: #000;
+}
+
+
+/* =======================================================
+
+searchbar
+*/
+
+.cl_country {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+}
+
+.cl_age {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+}
+
+.cl_auth {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+}
+
+input#myInput {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+    border: 1px solid;
+    justify-content: left;
+}
+
+.searchBar.col-md-6 {
+    text-align: right;
+}
+
+.selectpath {
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.selctsignup {
+    width: 300px;
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
 }

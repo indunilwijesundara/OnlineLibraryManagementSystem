@@ -20,17 +20,22 @@ if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
     $fname=$_POST['fullanme'];
     $mobileno=$_POST['mobileno'];
     $email=$_POST['email']; 
+    $occupation=$_POST['occupation'];
+    $selectedfaculty="";
+    $selecteddepartment="";
+    $selectedyear="";
     $selectedfaculty=$_POST['faculty'];
     $selecteddepartment=$_POST['department'];
     $selectedyear=$_POST['year'];
     $password=md5($_POST['password']); 
     $status=1;
-    $sql="INSERT INTO  tblstudents(StudentId,FullName,MobileNumber,EmailId,Faculty,Department,Year,Password,Status) VALUES(:StudentId,:fname,:mobileno,:email,:selectedfaculty,:selecteddepartment,:selectedyear,:password,:status)";
+    $sql="INSERT INTO  tblstudents(StudentId,FullName,MobileNumber,EmailId,Occupation,Faculty,Department,Year,Password,Status) VALUES(:StudentId,:fname,:mobileno,:email,:occupation,:selectedfaculty,:selecteddepartment,:selectedyear,:password,:status)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':StudentId',$StudentId,PDO::PARAM_STR);
     $query->bindParam(':fname',$fname,PDO::PARAM_STR);
     $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
     $query->bindParam(':email',$email,PDO::PARAM_STR);
+    $query->bindParam(':occupation',$occupation,PDO::PARAM_STR);
     $query->bindParam(':selectedfaculty', $selectedfaculty,PDO::PARAM_STR);
     $query->bindParam(':selecteddepartment', $selecteddepartment,PDO::PARAM_STR);
     $query->bindParam(':selectedyear', $selectedyear,PDO::PARAM_STR);
@@ -139,11 +144,21 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                         onBlur="checkAvailability()" autocomplete="off" required />
                                     <span id="user-availability-status" style="font-size:12px;"></span>
                                 </div>
+                                <div class="form-group">
+                                    <label>Select Yor Section</label>
+                                    <SELECT class="form-control" id="occupation" name="occupation" onChange="" required>
+                                        <Option value="" disabled disabled selected>-Select Yor Section-</option>
+                                        <Option value="Staff">Staff</option>
+                                        <Option value="Student">Student</option>
+                                        <Option value="Lectures">Lectures</option>
+                                        <Option value="Othors">Othors</option>
+
+                                    </SELECT>
+                                </div>
 
                                 <div class="form-group">
                                     <label>Select Your faculty</label>
-                                    <select class="form-control" name="faculty" id="faculty" autocomplete="off"
-                                        required>
+                                    <select class="form-control" name="faculty" id="faculty" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Faculty-</option>
                                         <option value="fas">Faculty Of Applied Science</option>
                                         <option value="sidha">Faculty of Sidha Medicine</option>
@@ -153,8 +168,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 
                                 <div class="form-group">
                                     <label>Select Your Department</label>
-                                    <select class="form-control" name="department" id="department" autocomplete="off"
-                                        required>
+                                    <select class="form-control" name="department" id="department" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Department-</option>
                                         <option value="cs">Department of Computer Science</option>
                                         <option value="ps">Department of Physical Science</option>
@@ -165,7 +179,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 
                                 <div class="form-group">
                                     <label>Select Your Academic Year</label>
-                                    <select class="form-control" name="year" id="year" autocomplete="off" required>
+                                    <select class="form-control" name="year" id="year" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Academic Year-</option>
                                         <option value="16/17">2016/2017</option>
                                         <option value="17/18">2017/2018</option>

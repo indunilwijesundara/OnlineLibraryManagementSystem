@@ -103,6 +103,131 @@ header('location:manage-books.php');
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <!-- Java Script for filter -->
+                    <script type="text/javascript"
+                        src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#ddlCountry,#ddlAge,#ddlAuth").on("change", function() {
+                            var country = $('#ddlCountry').find("option:selected").val();
+                            var age = $('#ddlAge').find("option:selected").val();
+                            var auth = $('#ddlAuth').find("option:selected").val();
+                            SearchData(country, age, auth)
+                        });
+                    });
+
+                    function SearchData(country, age, auth) {
+                        if (country.toUpperCase() == 'ALL' && age.toUpperCase() == 'ALL' && auth.toUpperCase() ==
+                            'ALL') {
+                            $('#table11 tbody tr').show();
+                        } else {
+                            $('#table11 tbody tr:has(td)').each(function() {
+                                var rowCountry = $.trim($(this).find('td:eq(1)').text());
+                                var rowAge = $.trim($(this).find('td:eq(2)').text());
+                                var rowAuth = $.trim($(this).find('td:eq(3)').text());
+                                if (country.toUpperCase() != 'ALL' && age.toUpperCase() != 'ALL') {
+                                    if (rowCountry.toUpperCase() == country.toUpperCase() && rowAge == age &&
+                                        rowAuth.toUpperCase() == auth.toUpperCase()) {
+                                        $(this).show();
+                                    } else {
+                                        $(this).hide();
+                                    }
+                                } else if ($(this).find('td:eq(1)').text() != '' || $(this).find('td:eq(1)')
+                                    .text() != '') {
+                                    if (country != 'all') {
+                                        if (rowCountry.toUpperCase() == country.toUpperCase()) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                    if (age != 'all') {
+                                        if (rowAge == age) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                    if (auth != 'all') {
+                                        if (rowAuth == auth) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                }
+
+                            });
+                        }
+                    }
+                    </script>
+                    <!-- Java Script for filter End -->
+                    <!-- Filters -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+
+                                <select class="cl_country" id="ddlCountry">
+                                    <option value="all">Select Book Name </option>
+                                    <?php 
+                         $sql = "SELECT * from  tblbooks";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->BookName);?>">
+                                        <?php echo htmlentities($result->BookName);?></option>
+                                    <?php }}
+                        ?>
+
+                                </select>
+                                <select class="cl_age" id="ddlAge">
+                                    <option value="all">Select Category </option>
+                                    <?php 
+                         $sql = "SELECT * from  tblcategory";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->CategoryName);?>">
+                                        <?php echo htmlentities($result->CategoryName);?></option>
+                                    <?php }}
+                        ?>
+                                </select>
+                                <select class="cl_auth" id="ddlAuth">
+                                    <option value="all">Select Author</option>
+                                    <?php 
+                         $sql = "SELECT * from  tblauthors";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->AuthorName);?>">
+                                        <?php echo htmlentities($result->AuthorName);?></option>
+                                    <?php }}
+                        ?>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Filters End -->
+
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -110,7 +235,7 @@ header('location:manage-books.php');
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="table11">
                                     <thead>
                                         <tr>
                                             <th>#</th>

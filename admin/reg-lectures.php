@@ -68,7 +68,7 @@ header('location:reg-students.php');
         <div class="container">
             <div class="row pad-botm">
                 <div class="col-md-12">
-                    <h4 class="header-line">Manage Reg Students</h4>
+                    <h4 class="header-line">Manage Reg Lectures</h4>
                 </div>
 
 
@@ -76,9 +76,15 @@ header('location:reg-students.php');
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
+
+
+
+
+
+                    <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Reg Students
+                            Reg Lectures
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -89,9 +95,7 @@ header('location:reg-students.php');
                                             <th>Student ID</th>
                                             <th>Student Name</th>
                                             <th>Email id </th>
-                                            <th>Faculty</th>
-                                            <th>Department</th>
-                                            <th>Year</th>
+
                                             <th>Mobile Number</th>
                                             <th>Reg Date</th>
                                             <th>Status</th>
@@ -99,7 +103,7 @@ header('location:reg-students.php');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $sql = "SELECT * from tblstudents where Occupation='Student'";
+                                        <?php $sql = "SELECT * from tblstudents where Occupation='Lectures'";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -113,9 +117,7 @@ foreach($results as $result)
                                             <td class="center"><?php echo htmlentities($result->StudentId);?></td>
                                             <td class="center"><?php echo htmlentities($result->FullName);?></td>
                                             <td class="center"><?php echo htmlentities($result->EmailId);?></td>
-                                            <td class="center"><?php echo htmlentities($result->Faculty);?></td>
-                                            <td class="center"><?php echo htmlentities($result->Department);?></td>
-                                            <td class="center"><?php echo htmlentities($result->Year);?></td>
+
                                             <td class="center"><?php echo htmlentities($result->MobileNumber);?></td>
                                             <td class="center"><?php echo htmlentities($result->RegDate);?></td>
                                             <td class="center"><?php if($result->Status==1)
@@ -150,8 +152,6 @@ foreach($results as $result)
                         </div>
                     </div>
                     <!--End Advanced Tables -->
-
-
 
 
                 </div>

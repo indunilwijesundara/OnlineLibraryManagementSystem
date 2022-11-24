@@ -65,7 +65,7 @@
                     <ul id="menu-top" class="nav navbar-nav navbar-right">
 
                         <li><a href="adminlogin.php">Admin Login</a></li>
-                        <li><a href="signup.php" class="menu-top-active">User Signup</a></li>
+                        <li><a href="signup.php" id="myBtn" class="menu-top-active">User Signup</a></li>
                         <li><a href="index.php" class="menu-top-active">User Login</a></li>
                         <li><a href="aboutus.php" class="menu-top-active">About Us</a></li>
                         <li><a href="staff.php" class="menu-top-active">Staff</a></li>

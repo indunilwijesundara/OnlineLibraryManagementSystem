@@ -88,6 +88,7 @@ echo "<script>alert('Invalid Details');</script>";
                                     <label>Password</label>
                                     <input class="form-control" type="password" name="password" autocomplete="off"
                                         required />
+                                    <p class="help-block"><a href="admin-forgot-password.php">Forgot Password</a></p>
                                 </div>
                                 <div class="form-group">
                                     <label>Verification code : </label>

@@ -28,7 +28,21 @@
                         <li><a href="dashboard.php" class="menu-top-active">DASHBOARD</a></li>
 
 
-                        <li><a class="menu-top-active" href="reg-students.php">Reg Students</a></li>
+                        <li>
+
+                            <a href="#" class="menu-top-active dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+                                Reg Users <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                <li role="presentation"><a class="menu-top-active" role="menuitem" tabindex="-1"
+                                        href="reg-students.php">Reg Students</a></li>
+                                <li role="presentation"><a class="menu-top-active" role="menuitem" tabindex="-1"
+                                        href="reg-lectures.php">Reg Lectures</a></li>
+                                <li role="presentation"><a class="menu-top-active" role="menuitem" tabindex="-1"
+                                        href="reg-staff.php">Reg Staff</a></li>
+                                <li role="presentation"><a class="menu-top-active" role="menuitem" tabindex="-1"
+                                        href="reg-others.php">Reg Others</a></li>
+                            </ul>
+                        </li>
 
 
                     </ul>

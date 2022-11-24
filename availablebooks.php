@@ -41,6 +41,7 @@ header('location:manage-books.php');
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+
 </head>
 
 <body>
@@ -53,62 +54,174 @@ header('location:manage-books.php');
                 <div class="col-md-12">
                     <h4 class="header-line">Availble Books</h4>
                 </div>
-                <div class="row">
-                    <?php if($_SESSION['error']!="")
-    {?>
-                    <div class="col-md-6">
-                        <div class="alert alert-danger">
-                            <strong>Error :</strong>
-                            <?php echo htmlentities($_SESSION['error']);?>
-                            <?php echo htmlentities($_SESSION['error']="");?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <?php if($_SESSION['msg']!="")
-{?>
-                    <div class="col-md-6">
-                        <div class="alert alert-success">
-                            <strong>Success :</strong>
-                            <?php echo htmlentities($_SESSION['msg']);?>
-                            <?php echo htmlentities($_SESSION['msg']="");?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <?php if($_SESSION['updatemsg']!="")
-{?>
-                    <div class="col-md-6">
-                        <div class="alert alert-success">
-                            <strong>Success :</strong>
-                            <?php echo htmlentities($_SESSION['updatemsg']);?>
-                            <?php echo htmlentities($_SESSION['updatemsg']="");?>
-                        </div>
-                    </div>
-                    <?php } ?>
 
-
-                    <?php if($_SESSION['delmsg']!="")
-    {?>
-                    <div class="col-md-6">
-                        <div class="alert alert-success">
-                            <strong>Success :</strong>
-                            <?php echo htmlentities($_SESSION['delmsg']);?>
-                            <?php echo htmlentities($_SESSION['delmsg']="");?>
-                        </div>
-                    </div>
-                    <?php } ?>
-
-                </div>
 
 
             </div>
             <div class="row">
                 <div class="col-md-12">
+
+
+
+                    <script type="text/javascript"
+                        src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#ddlCountry,#ddlAge,#ddlAuth").on("change", function() {
+                            var country = $('#ddlCountry').find("option:selected").val();
+                            var age = $('#ddlAge').find("option:selected").val();
+                            var auth = $('#ddlAuth').find("option:selected").val();
+                            SearchData(country, age, auth)
+                        });
+                    });
+
+                    function SearchData(country, age, auth) {
+                        if (country.toUpperCase() == 'ALL' && age.toUpperCase() == 'ALL' && auth.toUpperCase() ==
+                            'ALL') {
+                            $('#table11 tbody tr').show();
+                        } else {
+                            $('#table11 tbody tr:has(td)').each(function() {
+                                var rowCountry = $.trim($(this).find('td:eq(1)').text());
+                                var rowAge = $.trim($(this).find('td:eq(2)').text());
+                                var rowAuth = $.trim($(this).find('td:eq(3)').text());
+                                if (country.toUpperCase() != 'ALL' && age.toUpperCase() != 'ALL') {
+                                    if (rowCountry.toUpperCase() == country.toUpperCase() && rowAge == age &&
+                                        rowAuth.toUpperCase() == auth.toUpperCase()) {
+                                        $(this).show();
+                                    } else {
+                                        $(this).hide();
+                                    }
+                                } else if ($(this).find('td:eq(1)').text() != '' || $(this).find('td:eq(1)')
+                                    .text() != '') {
+                                    if (country != 'all') {
+                                        if (rowCountry.toUpperCase() == country.toUpperCase()) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                    if (age != 'all') {
+                                        if (rowAge == age) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                    if (auth != 'all') {
+                                        if (rowAuth == auth) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                }
+
+                            });
+                        }
+                    }
+                    </script>
+
+
+
+                    <script>
+                    function myFunction() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("table11");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                    </script>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+
+                                <select class="cl_country" id="ddlCountry">
+                                    <option value="all">Select Book Name </option>
+                                    <?php 
+                         $sql = "SELECT * from  tblbooks";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->BookName);?>">
+                                        <?php echo htmlentities($result->BookName);?></option>
+                                    <?php }}
+                        ?>
+
+                                </select>
+                                <select class="cl_age" id="ddlAge">
+                                    <option value="all">Select Category </option>
+                                    <?php 
+                         $sql = "SELECT * from  tblcategory";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->CategoryName);?>">
+                                        <?php echo htmlentities($result->CategoryName);?></option>
+                                    <?php }}
+                        ?>
+                                </select>
+                                <select class="cl_auth" id="ddlAuth">
+                                    <option value="all">Select Author</option>
+                                    <?php 
+                         $sql = "SELECT * from  tblauthors";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->AuthorName);?>">
+                                        <?php echo htmlentities($result->AuthorName);?></option>
+                                    <?php }}
+                        ?>
+                                </select>
+
+                            </div>
+                            <div class="searchBar col-md-6">
+
+
+
+
+
+                                <input class="" type="text" id="myInput" onkeyup="myFunction()"
+                                    placeholder="Search for names.." title="Type in a name">
+                            </div>
+                        </div>
+
+
+                    </div>
+
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
 
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-hover" id="dataTables-example">
+                                <table class="table table-striped table-hover" id="table11">
                                     <thead class="col">
                                         <tr>
                                             <th>#</th>
@@ -138,16 +251,16 @@ echo htmlentities($r->BookId);
 $cn=1;
 $B="";
 if($q->rowCount()> 0){
-    foreach($r as $res){
-        ?>
+foreach($r as $res){
+?>
                                         <p>
                                             <?php 
-                                                    
-                                                   $B= htmlentities($res->BookId);                            
-            ?>
+                            
+                           $B= htmlentities($res->BookId);                            
+?>
                                         </p>
                                         <?php $cn=$cn+1;
-    }
+}
 }
 
 
@@ -167,20 +280,20 @@ foreach($results as $result)
                                             </td>
                                             <td class="center">
                                                 <?php 
-                                                if($B==htmlentities($result->id)){
-                                                    ?>
+                        if($B==htmlentities($result->id)){
+                            ?>
                                                 <a href="#" class="btn btn-danger btn-xs">Not Available</a>
                                                 <?php
-                                                }
-                                                else{
-                                                    ?>
+                        }
+                        else{
+                            ?>
                                                 <a href="#" class="btn btn-success btn-xs">Available</a>
                                                 <?php
-                                                }
+                        }
 
 
-                                           
-                                           ?>
+                   
+                   ?>
 
                                             </td>
 
@@ -201,7 +314,46 @@ foreach($results as $result)
 
         </div>
     </div>
+    <!-- <script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("mylist");
+        filter = input.value;
 
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    </script> -->
+    <!-- <script type="text/javascript">
+    $(document).ready(function() {
+        $("#fetchval").on('change', function() {
+            var value = $(this).val();
+            alert(value);
+            $.ajax({
+                url: "fetch.php",
+                type: "POST",
+                data: 'request=' + value,
+                beforeSend: function() {
+                    $(".container").html("<span>Working..</span>");
+                },
+                success: function(data) {
+                    $(".container").html("data");
+                }
+            });
+        });
+    });
+    </script> -->
     <!-- CONTENT-WRAPPER SECTION END-->
     <?php include('includes/footer.php');?>
     <!-- FOOTER SECTION END-->
@@ -215,6 +367,8 @@ foreach($results as $result)
     <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
+
+
 </body>
 
 </html>

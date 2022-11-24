@@ -278,3 +278,67 @@ body {
 .footer-section a:hover {
     color: #000;
 }
+
+.cl_country {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+}
+
+.cl_age {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+}
+
+.cl_auth {
+    border-radius: 10px;
+    margin: 10px;
+    height: 30px;
+}
+
+
+/* reg userss buttons */
+
+.mydivoutermulti {
+    position: relative;
+    background: #f90;
+    width: 130px;
+    height: 95px;
+    float: left;
+    margin-right: 15px;
+}
+
+.buttonoverlapmulti {
+    position: absolute;
+    z-index: 2;
+    top: 33px;
+    display: none;
+    left: 19px;
+    width: 92px;
+}
+
+.mydivoutermulti:hover .buttonoverlapmulti {
+    display: block;
+}
+
+
+/* filter bar */
+
+.cl_country {
+    border-radius: 20px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+select#ddlAge {
+    border-radius: 20px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+select#ddlAuth {
+    border-radius: 20px;
+    height: 30px;
+    margin-bottom: 10px;
+}
