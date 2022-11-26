@@ -16,7 +16,7 @@ if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
     $fp = fopen($count_my_page , "w");
     fputs($fp , "$hits[0]");
     fclose($fp); 
-    $StudentId= $hits[0];   
+    $StudentId= "TCLUID$hits[0]";   
     $fname=$_POST['fullanme'];
     $mobileno=$_POST['mobileno'];
     $email=$_POST['email']; 
@@ -27,7 +27,7 @@ if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
     $selectedfaculty=$_POST['faculty'];
     $selecteddepartment=$_POST['department'];
     $selectedyear=$_POST['year'];
-    $password=md5($_POST['password']); 
+    $password=$_POST['password']; 
     $status=1;
     $sql="INSERT INTO  tblstudents(StudentId,FullName,MobileNumber,EmailId,Occupation,Faculty,Department,Year,Password,Status) VALUES(:StudentId,:fname,:mobileno,:email,:occupation,:selectedfaculty,:selecteddepartment,:selectedyear,:password,:status)";
     $query = $dbh->prepare($sql);
@@ -126,26 +126,26 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                         <div class="panel-body">
                             <form name="signup" method="post" onSubmit="return valid();">
                                 <div class="form-group">
-                                    <label>Enter Full Name</label>
+                                    <label>Enter Full Name</label><span style="color:red;">*</span>
                                     <input class="form-control" type="text" name="fullanme" autocomplete="off"
                                         required />
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>Mobile Number :</label>
+                                    <label>Mobile Number </label><span style="color:red;">*</span>
                                     <input class="form-control" type="text" name="mobileno" maxlength="10"
                                         autocomplete="off" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Enter Email</label>
+                                    <label>Enter Email</label><span style="color:red;">*</span>
                                     <input class="form-control" type="email" name="email" id="emailid"
                                         onBlur="checkAvailability()" autocomplete="off" required />
                                     <span id="user-availability-status" style="font-size:12px;"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Select Yor Section</label>
+                                    <label>Select Yor Section</label><span style="color:red;">*</span>
                                     <SELECT class="form-control" id="occupation" name="occupation" onChange="" required>
                                         <Option value="" disabled disabled selected>-Select Yor Section-</option>
                                         <Option value="Staff">Staff</option>
@@ -190,13 +190,13 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Enter Password</label>
+                                    <label>Enter Password</label><span style="color:red;">*</span>
                                     <input class="form-control" type="password" name="password" autocomplete="off"
                                         required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Confirm Password </label>
+                                    <label>Confirm Password </label><span style="color:red;">*</span>
                                     <input class="form-control" type="password" name="confirmpassword"
                                         autocomplete="off" required />
                                 </div>

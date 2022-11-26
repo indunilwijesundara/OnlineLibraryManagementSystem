@@ -3,6 +3,9 @@ include('includes/config.php');
    
 if(ISSET($_POST['upload'])){
   $bookname=$_POST['bookname'];
+  $nobooks=$_POST['nobooks'];
+  $faculty=$_POST['faculty'];
+  $departmentSelect=$_POST['departmentSelect'];
   $category=$_POST['category'];
   $author=$_POST['author'];
   $isbn=$_POST['isbn'];
@@ -17,14 +20,14 @@ if(ISSET($_POST['upload'])){
     if(move_uploaded_file($file_temp, $location)){
       try{
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice)  VALUES ('$bookname','$category','$author','$isbn','$file_name')";
+        $sql = "INSERT INTO tblbooks(BookName,NoOfBooks,Faculty,Department,CatId,AuthorId,ISBNNumber,BookPrice)  VALUES ('$bookname','$nobooks',' $faculty','$departmentSelect','$category','$author','$isbn','$file_name')";
         $dbh->exec($sql);
       }catch(PDOException $e){
         echo $e->getMessage();
       }
       
       $dbh = null;
-      header('location: index.php');
+      header('location: manage-books.php');
     }
   }else{
     echo "<center><h3 class='text-danger'>File too large to upload!</h3></center>";
@@ -50,9 +53,45 @@ if(ISSET($_POST['upload'])){
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+
+
+
+    <!-- Select sub category java script -->
+    <script type="text/javascript">
+    var subcategory = {
+        fas: ["Computer Science", "Physical Science"],
+        // sidha: [""],
+        fcbs: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
+        other: ['Novel', 'Translations']
+    }
+
+    function makeSubmenu(value) {
+        if (value.length == 0) document.getElementById("departmentSelect").innerHTML = "<option></option>";
+        else {
+            var citiesOptions = "";
+            for (categoryId in subcategory[value]) {
+                citiesOptions += "<option>" + subcategory[value][categoryId] + "</option>";
+            }
+            document.getElementById("departmentSelect").innerHTML = citiesOptions;
+        }
+    }
+
+    function displaySelected() {
+        var country = document.getElementById("faculty").value;
+        var city = document.getElementById("departmentSelect").value;
+        alert(country + "\n" + city);
+    }
+
+    function resetSelection() {
+        document.getElementById("faculty").selectedIndex = 0;
+        document.getElementById("departmentSelect").selectedIndex = 0;
+    }
+    </script>
+    <!-- Select sub category java script End-->
 </head>
 
-<body>
+
+<body onload="resetSelection()">
     <!------MENU SECTION START-->
     <?php include('includes/headermanagebook.php');?>
     <!-- MENU SECTION END-->
@@ -66,6 +105,7 @@ if(ISSET($_POST['upload'])){
                     </div>
 
                 </div>
+
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <div class="panel panel-info">
@@ -79,6 +119,38 @@ if(ISSET($_POST['upload'])){
                                             <input class="form-control" type="text" name="bookname" autocomplete="off"
                                                 required />
                                         </div>
+                                        <div class="form-group">
+                                            <label>Number of Books<span style="color:red;">*</span></label>
+                                            <input class="form-control" type="text" name="nobooks" autocomplete="off"
+                                                required />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Choose Faculty<span style="color:red;">*</span></label>
+                                            <select class="form-control" id="faculty" size="1" name="faculty"
+                                                onchange="makeSubmenu(this.value)">
+                                                <option value="" disabled selected>Choose Faculty</option>
+                                                <option value="fas">Faculty Of Applied Science</option>
+                                                <option value="sidha">Faculty of Sidha Medicine</option>
+                                                <option value="fcbs">Faculty of Bussiness & Communication Studies
+                                                </option>
+                                                <option value="other">Others</option>
+                                            </select>
+
+
+                                            <!-- <button onclick="displaySelected()">show selected</button> -->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Choose Department<span style="color:red;">*</span></label>
+                                            <select class="form-control" id="departmentSelect" name="departmentSelect"
+                                                size="1">
+                                                <option value="" disabled selected>Choose Department</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+
+
+
 
                                         <div class="form-group">
                                             <label> Category<span style="color:red;">*</span></label>

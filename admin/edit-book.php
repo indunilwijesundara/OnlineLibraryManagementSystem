@@ -158,7 +158,7 @@ continue;
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Price in USD<span style="color:red;">*</span></label>
+                                    <label>Book Image<span style="color:red;">*</span></label>
                                     <input class="form-control" type="text" name="price"
                                         value="<?php echo htmlentities($result->BookPrice);?>" required="required" />
                                 </div>

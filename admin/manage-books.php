@@ -240,6 +240,7 @@ header('location:manage-books.php');
                                         <tr>
                                             <th>#</th>
                                             <th>Book Name</th>
+                                            <th>No_of_Books</th>
                                             <th>Category</th>
                                             <th>Author</th>
                                             <th>ISBN</th>
@@ -249,7 +250,7 @@ header('location:manage-books.php');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
+                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblbooks.NoOfBooks,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
 
 $query = $dbh -> prepare($sql);
 $query->execute();
@@ -285,6 +286,7 @@ foreach($results as $result)
                                         <tr class="odd gradeX">
                                             <td class="center"><?php echo htmlentities($cnt);?></td>
                                             <td class="center"><?php echo htmlentities($result->BookName);?></td>
+                                            <td class="center"><?php echo htmlentities($result->NoOfBooks);?></td>
                                             <td class="center"><?php echo htmlentities($result->CategoryName);?></td>
                                             <td class="center"><?php echo htmlentities($result->AuthorName);?></td>
                                             <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
