@@ -166,7 +166,7 @@ $issuedbooks=$query1->rowCount();
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-issued-books.php';">
+                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-return-book.php';">
                     <div class="alert alert-success back-widget-set text-center">
                         <img style="width:70px;height:70px;" src="assets/img/returned.png">
                         <?php 
@@ -265,33 +265,18 @@ $listdcats=$query5->rowCount();
                         <div class="carousel-inner">
                             <div class="item active">
 
-                                <img src="assets/img/1.jpg" alt="" />
+
 
                             </div>
-                            <div class="item">
-                                <img src="assets/img/2.jpg" alt="" />
 
-                            </div>
-                            <div class="item">
-                                <img src="assets/img/3.jpg" alt="" />
 
-                            </div>
                         </div>
-                        <!--INDICATORS-->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example" data-slide-to="1"></li>
-                            <li data-target="#carousel-example" data-slide-to="2"></li>
-                        </ol>
-                        <!--PREVIUS-NEXT BUTTONS-->
-                        <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
+
+
                     </div>
                 </div>
+
+
 
 
 

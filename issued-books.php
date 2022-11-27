@@ -51,7 +51,7 @@ header('location:manage-books.php');
         <div class="container">
             <div class="row pad-botm">
                 <div class="col-md-12">
-                    <h4 class="header-line">Manage Issued Books</h4>
+                    <h4 class="header-line">Manage Borrowed Books</h4>
                 </div>
 
 
@@ -60,7 +60,7 @@ header('location:manage-books.php');
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Issued Books
+                                Borrowed Books
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">

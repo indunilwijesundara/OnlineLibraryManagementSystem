@@ -162,7 +162,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                         <option value="" disabled disabled selected>-Select Your Faculty-</option>
                                         <option value="fas">Faculty Of Applied Science</option>
                                         <option value="sidha">Faculty of Sidha Medicine</option>
-                                        <option value="bms">Faculty of Bussiness & Communication Studies</option>
+                                        <option value="bms">Faculty of Communication & Bussiness Studies</option>
                                     </select>
                                 </div>
 

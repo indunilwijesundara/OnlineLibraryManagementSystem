@@ -69,7 +69,7 @@
                         <li><a href="index.php" class="menu-top-active">User Login</a></li>
                         <li><a href="aboutus.php" class="menu-top-active">About Us</a></li>
                         <li><a href="staff.php" class="menu-top-active">Staff</a></li>
-
+                        <li><a href="museum.php" class="menu-top-active">Museum</a></li>
                     </ul>
                 </div>
             </div>

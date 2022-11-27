@@ -33,6 +33,7 @@ include('includes/config.php');
             <div class="row pad-botm">
                 <div class="col-md-12">
 
+
                     <!-- Slideer -->
 
                     <div class="row">
@@ -43,15 +44,15 @@ include('includes/config.php');
                                 <div class="carousel-inner">
                                     <div class="item active">
 
-                                        <img src="assets/img/1.jpg" alt="" />
+                                        <img src="assets/img/001.jpg" alt="" />
 
                                     </div>
                                     <div class="item">
-                                        <img src="assets/img/2.jpg" alt="" />
+                                        <img src="assets/img/002.jpg" alt="" />
 
                                     </div>
                                     <div class="item">
-                                        <img src="assets/img/3.jpg" alt="" />
+                                        <img src="assets/img/003.jpg" alt="" />
 
                                     </div>
                                 </div>

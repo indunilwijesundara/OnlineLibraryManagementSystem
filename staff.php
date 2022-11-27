@@ -38,7 +38,7 @@ include('includes/config.php');
 
         </div>
 
-        <h3 class="header-line">staff</h3>
+        <h3 class="header-line">Staff Details</h3>
         <hr>
 
         <div class="staff row">
@@ -48,21 +48,36 @@ include('includes/config.php');
                 <div class="alert alert-success back-widget-set text-center">
                     <img style="width:200px;height:200px;" src="assets/img/user2.png">
 
-                    <h1>Member 1</h1>
+
+                    <h5>John perera</h5>
+                    <h5>Senior Assistant Librarian</h5>
+                    <h5>phone:(+94)766979200</h5>
+                    <h5>E-mail:john@gmail,com</h5>
+
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="alert alert-success back-widget-set text-center">
                     <img style="width:200px;height:200px;" src="assets/img/user3.png">
-                    <h5>Member 1</h5>
+                    <h5>Ramesh sellingam</h5>
+                    <h5>Assistant Librarian</h5>
+                    <h5>phone:(+94)756978100</h5>
+                    <h5>E-mail:rame@gmail,com</h5>
+
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="alert alert-success back-widget-set text-center">
                     <img style="width:200px;height:200px;" src="assets/img/user4.png">
-                    <h1>Member 1</h1>
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
                 </div>
             </div>
 
@@ -70,14 +85,111 @@ include('includes/config.php');
                 <div class="alert alert-success back-widget-set text-center">
                     <img style="width:200px;height:200px;" src="assets/img/user5.png">
 
-                    <h1>Member 1</h1>
+                    <h5>Eric jonathan</h5>
+                    <h5>Librarian</h5>
+                    <h5>phone:(+94)776060700</h5>
+                    <h5>E-mail:eric@gmail,com</h5>
+
+
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <img style="width:200px;height:200px;" src="assets/img/user4.png">
+
+                    <h5>Librarian</h5>
+                    <h5>Sathya perumai</h5>
+                    <h5>phone:(+94)717979101</h5>
+                    <h5>E-mail:sathya@gmail,com</h5>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
                     <img style="width:200px;height:200px;" src="assets/img/user6.png">
 
-                    <h1>Member 1</h1>
+                    <h5>Shriyani vibu</h5>
+                    <h5>Librarian</h5>
+                    <h5>phone:(+94)706979200</h5>
+                    <h5>E-mail:shriya@gmail,com</h5>
+
+
                 </div>
             </div>
 
