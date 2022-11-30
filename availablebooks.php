@@ -235,7 +235,7 @@ header('location:manage-books.php');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
+                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookImage,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
 
 $query = $dbh -> prepare($sql);
 $query->execute();
@@ -275,7 +275,7 @@ foreach($results as $result)
                                             <td class="center"><?php echo htmlentities($result->AuthorName);?></td>
                                             <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
                                             <td class="center"><img
-                                                    src="admin/image/<?php echo htmlentities($result->BookPrice);?>"
+                                                    src="admin/image/<?php echo htmlentities($result->BookImage);?>"
                                                     width="75px" height="75px">
                                             </td>
                                             <td class="center">

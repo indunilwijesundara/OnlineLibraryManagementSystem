@@ -108,25 +108,36 @@ header('location:manage-books.php');
                         src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                     <script type="text/javascript">
                     $(document).ready(function() {
-                        $("#ddlCountry,#ddlAge,#ddlAuth").on("change", function() {
+                        $("#ddlCountry,#ddlFac,#ddlDepart,#ddlAge,#ddlAuth").on("change", function() {
                             var country = $('#ddlCountry').find("option:selected").val();
+                            var faculty = $('#ddlFac').find("option:selected").val();
+                            var department = $('#ddlDepart').find("option:selected").val();
                             var age = $('#ddlAge').find("option:selected").val();
                             var auth = $('#ddlAuth').find("option:selected").val();
-                            SearchData(country, age, auth)
+                            SearchData(country, faculty, department, age, auth)
                         });
                     });
 
-                    function SearchData(country, age, auth) {
-                        if (country.toUpperCase() == 'ALL' && age.toUpperCase() == 'ALL' && auth.toUpperCase() ==
+                    function SearchData(country, faculty, department, age, auth) {
+                        if (country.toUpperCase() == 'ALL' && faculty.toUpperCase() == 'ALL' && department
+                            .toUpperCase() ==
+                            'ALL' && age.toUpperCase() ==
+                            'ALL' && auth.toUpperCase() ==
                             'ALL') {
                             $('#table11 tbody tr').show();
                         } else {
                             $('#table11 tbody tr:has(td)').each(function() {
                                 var rowCountry = $.trim($(this).find('td:eq(1)').text());
-                                var rowAge = $.trim($(this).find('td:eq(2)').text());
-                                var rowAuth = $.trim($(this).find('td:eq(3)').text());
-                                if (country.toUpperCase() != 'ALL' && age.toUpperCase() != 'ALL') {
-                                    if (rowCountry.toUpperCase() == country.toUpperCase() && rowAge == age &&
+                                var rowFaculty = $.trim($(this).find('td:eq(3)').text());
+                                var rowDepartment = $.trim($(this).find('td:eq(4)').text());
+                                var rowAge = $.trim($(this).find('td:eq(5)').text());
+                                var rowAuth = $.trim($(this).find('td:eq(6)').text());
+                                if (country.toUpperCase() != 'ALL' && faculty.toUpperCase() != 'ALL' &&
+                                    department.toUpperCase() != 'ALL' && age
+                                    .toUpperCase() != 'ALL') {
+                                    if (rowCountry.toUpperCase() == country.toUpperCase() && rowFaculty
+                                        .toUpperCase() == faculty.toUpperCase() && rowDepartment
+                                        .toUpperCase() == department.toUpperCase() && rowAge == age &&
                                         rowAuth.toUpperCase() == auth.toUpperCase()) {
                                         $(this).show();
                                     } else {
@@ -136,6 +147,20 @@ header('location:manage-books.php');
                                     .text() != '') {
                                     if (country != 'all') {
                                         if (rowCountry.toUpperCase() == country.toUpperCase()) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                    if (faculty != 'all') {
+                                        if (rowFaculty.toUpperCase() == faculty.toUpperCase()) {
+                                            $(this).show();
+                                        } else {
+                                            $(this).hide();
+                                        }
+                                    }
+                                    if (department != 'all') {
+                                        if (rowDepartment.toUpperCase() == department.toUpperCase()) {
                                             $(this).show();
                                         } else {
                                             $(this).hide();
@@ -165,7 +190,7 @@ header('location:manage-books.php');
                     <!-- Filters -->
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
 
                                 <select class="cl_country" id="ddlCountry">
                                     <option value="all">Select Book Name </option>
@@ -181,6 +206,55 @@ header('location:manage-books.php');
                          {               ?>
                                     <option value="<?php echo htmlentities($result->BookName);?>">
                                         <?php echo htmlentities($result->BookName);?></option>
+                                    <?php }}
+                        ?>
+
+                                </select>
+                                <select class="cl_country" id="ddlFac">
+                                    <option value="all">Select Faculty </option>
+                                    <?php 
+                         $sql = "SELECT Faculty from  tblbooks";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php
+                                    echo htmlentities($result->Faculty);
+                                   
+                                    ?>">
+                                        <?php
+                                        if(htmlentities($result->Faculty)=="fcbs"){
+                                            echo htmlentities("fcbs");
+                                            break;
+                                        }
+                                        // if(htmlentities($result->Faculty)=="fas"){
+                                        //     echo htmlentities("fas");
+                                        //     break;
+                                        // }
+                                        
+                                    ?>
+                                    </option>
+                                    <?php }
+                        ?>
+
+                                </select>
+                                <select class="cl_country" id="ddlDepart">
+                                    <option value="all">Select Department </option>
+                                    <?php 
+                         $sql = "SELECT Department from  tblbooks";
+                         $query = $dbh -> prepare($sql);
+                         $query->execute();
+                         $results=$query->fetchAll(PDO::FETCH_OBJ);
+                         $cnt=1;  
+                         if($query->rowCount() > 0)
+                         {
+                         foreach($results as $result)
+                         {               ?>
+                                    <option value="<?php echo htmlentities($result->Department);?>">
+                                        <?php echo htmlentities($result->Department);?></option>
                                     <?php }}
                         ?>
 
@@ -241,6 +315,8 @@ header('location:manage-books.php');
                                             <th>#</th>
                                             <th>Book Name</th>
                                             <th>No_of_Books</th>
+                                            <th>Faculty</th>
+                                            <th>Department</th>
                                             <th>Category</th>
                                             <th>Author</th>
                                             <th>ISBN</th>
@@ -250,7 +326,7 @@ header('location:manage-books.php');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblbooks.NoOfBooks,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
+                                        <?php $sql = "SELECT tblbooks.id,tblbooks.BookName,tblbooks.Faculty,tblbooks.Department,tblbooks.NoOfBooks,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookImage,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId" ;
 
 $query = $dbh -> prepare($sql);
 $query->execute();
@@ -287,11 +363,13 @@ foreach($results as $result)
                                             <td class="center"><?php echo htmlentities($cnt);?></td>
                                             <td class="center"><?php echo htmlentities($result->BookName);?></td>
                                             <td class="center"><?php echo htmlentities($result->NoOfBooks);?></td>
+                                            <td class="center"><?php echo htmlentities($result->Faculty);?></td>
+                                            <td class="center"><?php echo htmlentities($result->Department);?></td>
                                             <td class="center"><?php echo htmlentities($result->CategoryName);?></td>
                                             <td class="center"><?php echo htmlentities($result->AuthorName);?></td>
                                             <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
                                             <td class="center"><img
-                                                    src="image/<?php echo htmlentities($result->BookPrice);?>"
+                                                    src="image/<?php echo htmlentities($result->BookImage);?>"
                                                     width="75px" height="75px">
                                             </td>
                                             <td class="center">

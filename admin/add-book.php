@@ -9,7 +9,7 @@ if(ISSET($_POST['upload'])){
   $category=$_POST['category'];
   $author=$_POST['author'];
   $isbn=$_POST['isbn'];
-
+echo $isbn;
   $file_name = $_FILES['file']['name'];
   $file_temp = $_FILES['file']['tmp_name'];
   $file_size = $_FILES['file']['size'];
@@ -20,7 +20,7 @@ if(ISSET($_POST['upload'])){
     if(move_uploaded_file($file_temp, $location)){
       try{
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO tblbooks(BookName,NoOfBooks,Faculty,Department,CatId,AuthorId,ISBNNumber,BookPrice)  VALUES ('$bookname','$nobooks',' $faculty','$departmentSelect','$category','$author','$isbn','$file_name')";
+        $sql = "INSERT INTO tblbooks(BookName,NoOfBooks,Faculty,Department,CatId,AuthorId,ISBNNumber,BookImage)  VALUES ('$bookname','$nobooks',' $faculty','$departmentSelect','$category','$author','$isbn','$file_name')";
         $dbh->exec($sql);
       }catch(PDOException $e){
         echo $e->getMessage();
