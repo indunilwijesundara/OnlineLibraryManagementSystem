@@ -86,8 +86,8 @@ header('location:reg-students.php');
                                     <thead>
                                         <tr>
 
-                                            <th>Student ID</th>
-                                            <th>Student Name</th>
+                                            <th>Other ID</th>
+                                            <th>Others Name</th>
                                             <th>Email id </th>
 
                                             <th>Mobile Number</th>

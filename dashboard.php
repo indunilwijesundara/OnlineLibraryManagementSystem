@@ -64,7 +64,7 @@ $issuedbooks=$query1->rowCount();
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'issued-books.php';">
+                <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'notreturn.php';">
                     <div class="alert alert-success back-widget-set text-center">
                         <i class="fa fa-recycle fa-5x"></i>
                         <?php 

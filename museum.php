@@ -41,134 +41,40 @@ include('includes/config.php');
         <h3 class="header-line">Museum</h3>
         <hr>
 
-        <div class="staff row">
+        <div class="musium row">
 
 
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/11.JPG">
-                </div>
+            <div class="col-md-12">
+
+                <img style="width:200px;height:200px;" src="assets/img/11.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/15.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/13.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/16.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/14.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/29.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/29.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/17.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/18.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/19.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/20.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/21.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/22.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/23.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/24.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/25.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/26.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/27.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/28.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/12.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/30.JPG">
+                <img style="width:200px;height:200px;" src="assets/img/30.JPG">
+
+
+
+
             </div>
 
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/15.JPG">
-                </div>
-            </div>
 
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/13.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/16.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/14.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/29.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/17.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/18.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/19.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/20.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/21.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/22.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/23.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/24.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/25.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/26.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/27.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/28.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/12.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/30.JPG">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <img style="width:200px;height:200px;" src="assets/img/31.JPG">
-                </div>
-            </div>
         </div>
 
 

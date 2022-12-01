@@ -41,18 +41,18 @@ include('includes/config.php');
                         <div class="col-md-12">
                             <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel">
 
-                                <div class="carousel-inner">
+                                <div class="imgslide carousel-inner">
                                     <div class="item active">
 
-                                        <img src="assets/img/001.jpg" alt="" />
+                                        <img class="imgslide" src="assets/img/001.jpg" alt="" />
 
                                     </div>
                                     <div class="item">
-                                        <img src="assets/img/002.jpg" alt="" />
+                                        <img class="imgslide" src="assets/img/002.jpg" alt="" />
 
                                     </div>
                                     <div class="item">
-                                        <img src="assets/img/003.jpg" alt="" />
+                                        <img class="imgslide" src="assets/img/003.jpg" alt="" />
 
                                     </div>
                                 </div>

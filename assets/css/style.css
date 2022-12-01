@@ -258,7 +258,7 @@ Book card Styles
 .carousel-inner>.item>img,
 .carousel-inner>.item>a>img {
     display: block;
-    width: 100% \9;
+    width: 100%;
     max-width: 100%;
     height: 500px;
     background-size: cover;
@@ -438,4 +438,16 @@ input#myInput {
     border-radius: 20px;
     height: 30px;
     text-align: center;
+}
+
+.imgslide {
+    max-width: 100%;
+    position: relative;
+}
+
+.musium {
+    margin-right: 10px;
+    margin-left: 30px;
+    align-items: center;
+    display: flex;
 }

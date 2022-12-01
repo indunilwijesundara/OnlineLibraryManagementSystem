@@ -51,7 +51,7 @@ header('location:manage-books.php');
         <div class="container">
             <div class="row pad-botm">
                 <div class="col-md-12">
-                    <h4 class="header-line">Borrowed Books</h4>
+                    <h4 class="header-line">Not Return Books</h4>
                 </div>
 
 
@@ -70,8 +70,8 @@ header('location:manage-books.php');
                                                 <th>Book Name</th>
                                                 <th>ISBN </th>
                                                 <th>Issued Date</th>
-                                                <!-- <th>Return Date</th>
-                                                <th>Fine in(USD)</th> -->
+                                                <th>Return Date</th>
+                                                <th>Fine in(USD)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,7 +92,7 @@ foreach($results as $result)
                                                 <td class="center"><?php echo htmlentities($result->BookName);?></td>
                                                 <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
                                                 <td class="center"><?php echo htmlentities($result->IssuesDate);?></td>
-                                                <!-- <td class="center"><?php if($result->ReturnDate=="")
+                                                <td class="center"><?php if($result->ReturnDate=="")
                                             {?>
                                                     <span style="color:red">
                                                         <?php   echo htmlentities("Not Return Yet"); ?>
@@ -102,7 +102,7 @@ foreach($results as $result)
                                         }
                                             ?>
                                                 </td>
-                                                <td class="center"><?php echo htmlentities($result->fine);?></td> -->
+                                                <td class="center"><?php echo htmlentities($result->fine);?></td>
 
                                             </tr>
                                             <?php $cnt=$cnt+1;}} ?>
