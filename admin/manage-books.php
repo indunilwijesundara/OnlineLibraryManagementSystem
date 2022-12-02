@@ -108,18 +108,18 @@ header('location:manage-books.php');
                         src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                     <script type="text/javascript">
                     $(document).ready(function() {
-                        $("#ddlCountry,#ddlFac,#ddlDepart,#ddlAge,#ddlAuth").on("change", function() {
-                            var country = $('#ddlCountry').find("option:selected").val();
-                            var faculty = $('#ddlFac').find("option:selected").val();
+                        $("#ddlDepart,#ddlAge,#ddlAuth").on("change", function() {
+
+
                             var department = $('#ddlDepart').find("option:selected").val();
                             var age = $('#ddlAge').find("option:selected").val();
                             var auth = $('#ddlAuth').find("option:selected").val();
-                            SearchData(country, faculty, department, age, auth)
+                            SearchData(department, age, auth)
                         });
                     });
 
-                    function SearchData(country, faculty, department, age, auth) {
-                        if (country.toUpperCase() == 'ALL' && faculty.toUpperCase() == 'ALL' && department
+                    function SearchData(department, age, auth) {
+                        if (department
                             .toUpperCase() ==
                             'ALL' && age.toUpperCase() ==
                             'ALL' && auth.toUpperCase() ==
@@ -127,16 +127,15 @@ header('location:manage-books.php');
                             $('#table11 tbody tr').show();
                         } else {
                             $('#table11 tbody tr:has(td)').each(function() {
-                                var rowCountry = $.trim($(this).find('td:eq(1)').text());
-                                var rowFaculty = $.trim($(this).find('td:eq(3)').text());
+
+
                                 var rowDepartment = $.trim($(this).find('td:eq(4)').text());
                                 var rowAge = $.trim($(this).find('td:eq(5)').text());
                                 var rowAuth = $.trim($(this).find('td:eq(6)').text());
-                                if (country.toUpperCase() != 'ALL' && faculty.toUpperCase() != 'ALL' &&
+                                if (
                                     department.toUpperCase() != 'ALL' && age
                                     .toUpperCase() != 'ALL') {
-                                    if (rowCountry.toUpperCase() == country.toUpperCase() && rowFaculty
-                                        .toUpperCase() == faculty.toUpperCase() && rowDepartment
+                                    if (rowDepartment
                                         .toUpperCase() == department.toUpperCase() && rowAge == age &&
                                         rowAuth.toUpperCase() == auth.toUpperCase()) {
                                         $(this).show();
@@ -145,20 +144,8 @@ header('location:manage-books.php');
                                     }
                                 } else if ($(this).find('td:eq(1)').text() != '' || $(this).find('td:eq(1)')
                                     .text() != '') {
-                                    if (country != 'all') {
-                                        if (rowCountry.toUpperCase() == country.toUpperCase()) {
-                                            $(this).show();
-                                        } else {
-                                            $(this).hide();
-                                        }
-                                    }
-                                    if (faculty != 'all') {
-                                        if (rowFaculty.toUpperCase() == faculty.toUpperCase()) {
-                                            $(this).show();
-                                        } else {
-                                            $(this).hide();
-                                        }
-                                    }
+
+
                                     if (department != 'all') {
                                         if (rowDepartment.toUpperCase() == department.toUpperCase()) {
                                             $(this).show();
@@ -185,6 +172,53 @@ header('location:manage-books.php');
                             });
                         }
                     }
+
+                    function searchTable() {
+                        var input, filter, found, table, tr, td, i, j;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("table11");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td");
+                            for (j = 0; j < td.length; j++) {
+                                if (td[1].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                    found = true;
+
+                                }
+                            }
+                            if (found) {
+                                tr[i].style.display = "";
+                                found = false;
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+
+                    function serchByISBN() {
+                        var input, filter, found, table, tr, td, i, j;
+                        input = document.getElementById("myIsbn");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("table11");
+                        tr = table.getElementsByTagName("tr");
+
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td");
+                            for (j = 0; j < td.length; j++) {
+                                if (td[7].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                    found = true;
+
+                                }
+                            }
+                            if (found) {
+                                tr[i].style.display = "";
+                                found = false;
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
                     </script>
                     <!-- Java Script for filter End -->
                     <!-- Filters -->
@@ -192,59 +226,15 @@ header('location:manage-books.php');
                         <div class="col-md-12">
                             <div class="col-md-12">
 
-                                <select class="cl_country" id="ddlCountry">
-                                    <option value="all">Select Book Name </option>
-                                    <?php 
-                         $sql = "SELECT * from  tblbooks";
-                         $query = $dbh -> prepare($sql);
-                         $query->execute();
-                         $results=$query->fetchAll(PDO::FETCH_OBJ);
-                         $cnt=1;  
-                         if($query->rowCount() > 0)
-                         {
-                         foreach($results as $result)
-                         {               ?>
-                                    <option value="<?php echo htmlentities($result->BookName);?>">
-                                        <?php echo htmlentities($result->BookName);?></option>
-                                    <?php }}
-                        ?>
-
-                                </select>
-                                <select class="cl_country" id="ddlFac">
-                                    <option value="all">Select Faculty </option>
-                                    <?php 
-                         $sql = "SELECT Faculty from  tblbooks";
-                         $query = $dbh -> prepare($sql);
-                         $query->execute();
-                         $results=$query->fetchAll(PDO::FETCH_OBJ);
-                         $cnt=1;  
-                         
-                         foreach($results as $result)
-                         {               ?>
-                                    <option value="<?php
-                                    echo htmlentities($result->Faculty);
-                                   
-                                    ?>">
-                                        <?php
-                                        if(htmlentities($result->Faculty)=="fcbs"){
-                                            echo htmlentities("fcbs");
-                                            break;
-                                        }
-                                        // if(htmlentities($result->Faculty)=="fas"){
-                                        //     echo htmlentities("fas");
-                                        //     break;
-                                        // }
-                                        
-                                    ?>
-                                    </option>
-                                    <?php }
-                        ?>
-
-                                </select>
+                                <input class="cl_country" id='myInput' placeholder="Search Book Name"
+                                    onkeyup='searchTable()' type='text'>
+                                <input class="isbn" id='myIsbn' placeholder="Search ISBN" onkeyup='serchByISBN()'
+                                    type='text'>
                                 <select class="cl_country" id="ddlDepart">
                                     <option value="all">Select Department </option>
+
                                     <?php 
-                         $sql = "SELECT Department from  tblbooks";
+                         $sql = "SELECT DISTINCT Department from  tblbooks ";
                          $query = $dbh -> prepare($sql);
                          $query->execute();
                          $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -301,6 +291,7 @@ header('location:manage-books.php');
 
                     </div>
                     <!-- Filters End -->
+
 
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
@@ -406,6 +397,11 @@ foreach($results as $result)
                                         <?php $cnt=$cnt+1;}} ?>
                                     </tbody>
                                 </table>
+
+
+
+
+
                             </div>
 
                         </div>

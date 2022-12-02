@@ -18,6 +18,7 @@ if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
     fclose($fp); 
     $StudentId= "TCLUID$hits[0]";   
     $fname=$_POST['fullanme'];
+    
     $mobileno=$_POST['mobileno'];
     $email=$_POST['email']; 
     $occupation=$_POST['occupation'];
@@ -28,6 +29,30 @@ if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
     $selecteddepartment=$_POST['department'];
     $selectedyear=$_POST['year'];
     $password=$_POST['password']; 
+
+// Validate password strength
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$number    = preg_match('@[0-9]@', $password);
+
+
+if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+    $passworderror= 'Password not strong';
+    echo "<script>alert('Password not strong');</script>" ;
+    $fname=$_POST['fullanme'];
+    
+    $mobileno=$_POST['mobileno'];
+    $email=$_POST['email']; 
+    $occupation=$_POST['occupation'];
+    $selectedfaculty="";
+    $selecteddepartment="";
+    $selectedyear="";
+    $selectedfaculty=$_POST['faculty'];
+    $selecteddepartment=$_POST['department'];
+    $selectedyear=$_POST['year'];
+}else{
+   
+
     $status=1;
     $sql="INSERT INTO  tblstudents(StudentId,FullName,MobileNumber,EmailId,Occupation,Faculty,Department,Year,Password,Status) VALUES(:StudentId,:fname,:mobileno,:email,:occupation,:selectedfaculty,:selecteddepartment,:selectedyear,:password,:status)";
     $query = $dbh->prepare($sql);
@@ -45,11 +70,12 @@ if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
     $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-echo '<script>alert("Your Registration successfull and your student id is  "+"'.$StudentId.'")</script>';
+   echo '<script>alert("Your Registration successfull and your student id is  "+"'.$StudentId.'")</script>';
 }
 else 
 {
 echo "<script>alert('Something went wrong. Please try again');</script>";
+}
 }
 }
 }
@@ -75,6 +101,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script type="text/javascript">
     function valid() {
         if (document.signup.password.value != document.signup.confirmpassword.value) {
@@ -128,7 +155,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                 <div class="form-group">
                                     <label>Enter Full Name</label><span style="color:red;">*</span>
                                     <input class="form-control" type="text" name="fullanme" autocomplete="off"
-                                        required />
+                                        pattern="[a-zA-Z]{1,}" required />
                                 </div>
 
 
@@ -190,15 +217,19 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Enter Password</label><span style="color:red;">*</span>
+                                    <label>Enter Password</label><span
+                                        style="color:red;">*<?php echo $passworderror?></span>
                                     <input class="form-control" type="password" name="password" autocomplete="off"
                                         required />
+
+
                                 </div>
 
                                 <div class="form-group">
                                     <label>Confirm Password </label><span style="color:red;">*</span>
                                     <input class="form-control" type="password" name="confirmpassword"
                                         autocomplete="off" required />
+
                                 </div>
                                 <div class="form-group">
                                     <label>Verification code : </label>

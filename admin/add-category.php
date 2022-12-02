@@ -76,7 +76,7 @@ header('location:manage-categories.php');
                                 <div class="form-group">
                                     <label>Category Name</label>
                                     <input class="form-control" type="text" name="category" autocomplete="off"
-                                        required />
+                                        pattern="[a-zA-Z]{1,}" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>

@@ -74,7 +74,7 @@ header('location:manage-authors.php');
                                     <div class="form-group">
                                         <label>Author Name</label>
                                         <input class="form-control" type="text" name="author" autocomplete="off"
-                                            required />
+                                            pattern="[a-zA-Z]{1,}" required />
                                     </div>
 
                                     <button type="submit" name="create" class="btn btn-info">Add </button>

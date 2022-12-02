@@ -280,9 +280,19 @@ body {
 }
 
 .cl_country {
+    border-radius: 5px;
+    margin: 10px;
+    height: 30px;
+    padding-left: 10px;
+    width: 250px;
+}
+
+.isbn {
     border-radius: 10px;
     margin: 10px;
     height: 30px;
+    padding-left: 10px;
+    width: 150px;
 }
 
 .cl_age {
