@@ -112,6 +112,13 @@ else{?>
     .mydivoutermulti:hover .buttonoverlapmulti4 {
         display: block;
     }
+
+    .footer-bottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
     </style>
 
 </head>
@@ -134,7 +141,7 @@ else{?>
 
                 <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-students.php';">
                     <div class="alert alert-success back-widget-set text-center">
-                        <img style="width:80px;height:70px;" src="assets/img/book.png">
+                        <img style="width:80px;height:70px;" src="assets/img/student.png">
 
                         Registered Student
                     </div>
@@ -143,15 +150,15 @@ else{?>
 
                 <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-lectures.php';">
                     <div class="alert alert-success back-widget-set text-center">
-                        <img style="width:60px;height:70px;" src="assets/img/listed.png">
+                        <img style="width:60px;height:70px;" src="assets/img/lecturers.png">
 
-                        Registered Lectures
+                        Registered Lecturers
                     </div>
                 </div>
 
                 <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-staff.php';">
                     <div class="alert alert-success back-widget-set text-center">
-                        <img style="width:70px;height:70px;" src="assets/img/returned.png">
+                        <img style="width:70px;height:70px;" src="assets/img/staff.png">
 
                         Registered Staff
                     </div>
@@ -184,7 +191,9 @@ else{?>
             </div>
         </div>
         <!-- CONTENT-WRAPPER SECTION END-->
-        <?php include('includes/footer.php');?>
+        <div class="footer-bottom">
+            <?php include('includes/footer.php');?>
+        </div>
         <!-- FOOTER SECTION END-->
         <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
         <!-- CORE JQUERY  -->
