@@ -183,8 +183,8 @@ $returnedbooks=$query2->rowCount();
                         Returned Books
                     </div>
                 </div>
-                <div class="mydivoutermulti col-md-3 col-sm-3 col-xs-6">
-                    <div class="alert alert-reg back-widget-set text-center">
+                <div class="mydivoutermulti col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-all.php';">
+                    <div class=" alert alert-reg back-widget-set text-center">
                         <img style="width:70px;height:70px;" src="assets/img/students.png">
                         <?php 
 $sql3 ="SELECT id from tblstudents ";
@@ -196,14 +196,14 @@ $regstds=$query3->rowCount();
                         <h3><?php echo htmlentities($regstds);?></h3>
                         Registered Users
 
-                        <button type="button" class="buttonoverlapmulti btn btn-info"
+                        <!-- <button type="button" class="buttonoverlapmulti btn btn-info"
                             onclick="window.location = 'reg-students.php';">Students</button>
                         <button type="button" class="buttonoverlapmulti2 btn btn-info"
                             onclick="window.location = 'reg-lectures.php';">Lectures</button>
                         <button type="button" class="buttonoverlapmulti3 btn btn-info"
                             onclick="window.location = 'reg-staff.php';">Staff</button>
                         <button type="button" class="buttonoverlapmulti4 btn btn-info"
-                            onclick="window.location = 'reg-others.php';">Others</button>
+                            onclick="window.location = 'reg-others.php';">Others</button> -->
 
                     </div>
                 </div>

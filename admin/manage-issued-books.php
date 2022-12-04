@@ -99,6 +99,7 @@ else{
                                             <th>Book Name</th>
                                             <th>ISBN </th>
                                             <th>Issued Date</th>
+                                            <th>Due Date</th>
                                             <th>Return Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -119,6 +120,35 @@ foreach($results as $result)
                                             <td class="center"><?php echo htmlentities($result->BookName);?></td>
                                             <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
                                             <td class="center"><?php echo htmlentities($result->IssuesDate);?></td>
+                                            <td class="center" style="color:red" align="center">
+                                                <?php
+                                            $date = $result->IssuesDate;
+                                             $dt = new DateTime($date);
+                                           
+                                            $borroweddate = $dt->format('Y-m-d');
+                                            $date1=strtotime("$borroweddate"); 
+                                            
+                                            
+ 
+                                            // Declare a date
+                                            $date2 = date_create("$borroweddate");
+ 
+                                            // Use date_add() function to add date object
+                                            date_add($date2, date_interval_create_from_date_string("14 days"));
+ 
+                                            // Display the added date
+                                            $endDate= date_format($date2, "Y-m-d");
+                                            
+                                            $now = time();
+                                            $your_date = strtotime($endDate);
+                                            $datediff =  $your_date-$now;
+                                            
+                                             echo round($datediff / (60 * 60 * 24));
+                                            
+                                     
+                                        
+                                         ?>
+                                            </td>
                                             <td class="center"><?php if($result->ReturnDate=="")
                                             {
                                                 echo htmlentities("Not Return Yet");
