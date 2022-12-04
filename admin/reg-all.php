@@ -112,6 +112,13 @@ else{?>
     .mydivoutermulti:hover .buttonoverlapmulti4 {
         display: block;
     }
+
+    .footer-bottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
     </style>
 
 </head>
@@ -157,8 +164,6 @@ else{?>
                     </div>
                 </div>
 
-
-
                 <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-others.php';">
                     <div class="alert alert-success back-widget-set text-center">
                         <img style="width:90px;height:70px;" src="assets/img/auth.png">
@@ -167,24 +172,13 @@ else{?>
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
         <!-- CONTENT-WRAPPER SECTION END-->
-        <?php include('includes/footer.php');?>
+        <div class="footer-bottom">
+            <?php include('includes/footer.php');?>
+        </div>
+
         <!-- FOOTER SECTION END-->
         <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
         <!-- CORE JQUERY  -->
