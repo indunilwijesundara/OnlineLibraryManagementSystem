@@ -215,7 +215,7 @@ $regstds=$query3->rowCount();
 
                 <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'manage-authors.php';">
                     <div class="alert alert-success back-widget-set text-center">
-                        <img style="width:90px;height:70px;" src="assets/img/auth.png">
+                        <img style="width:90px;height:70px;" src="assets/img/author.png">
                         <?php 
 $sql4 ="SELECT id from tblauthors ";
 $query4 = $dbh -> prepare($sql4);
