@@ -25,7 +25,7 @@ header('location:manage-categories.php');
 }
 else 
 {
-$_SESSION['error']="Something went wrong. Please try again";
+$_SESSION['error']="Somethig went wrong. Please try again";
 header('location:manage-categories.php');
 }
 
