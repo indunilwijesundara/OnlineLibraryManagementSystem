@@ -59,10 +59,10 @@ echo $isbn;
     <!-- Select sub category java script -->
     <script type="text/javascript">
     var subcategory = {
-        fas: ["Computer Science", "Physical Science"],
+        FAS: ["Computer Science", "Physical Science"],
         // sidha: [""],
-        fcbs: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
-        other: ['Novel', 'Translations']
+        FCBS: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
+        OTHERS: ['Novel', 'Translations']
     }
 
     function makeSubmenu(value) {
@@ -130,21 +130,32 @@ echo $isbn;
                                             <select class="form-control" id="faculty" size="1" name="faculty"
                                                 onchange="makeSubmenu(this.value)">
                                                 <option value="" disabled selected>Choose Faculty</option>
+                                                <option value="FAS">Faculty Of Applied Science</option>
+                                                <option value="SIDHA">Faculty of Sidha Medicine</option>
+                                                <option value="FCBS">Faculty of Bussiness & Communication Studies
+                                                </option>
+                                                <option value="OTHERS">Others</option>
+                                            </select>
+                                            <!-- 
+                                            <select id="faculty" size="1" onchange="makeSubmenu(this.value)">
+                                                <option value="" disabled selected>Choose Category</option>
                                                 <option value="fas">Faculty Of Applied Science</option>
                                                 <option value="sidha">Faculty of Sidha Medicine</option>
                                                 <option value="fcbs">Faculty of Bussiness & Communication Studies
                                                 </option>
-                                                <option value="other">Others</option>
-                                            </select>
-
+                                            </select> -->
 
                                             <!-- <button onclick="displaySelected()">show selected</button> -->
                                         </div>
                                         <div class="form-group">
                                             <label>Choose Department<span style="color:red;">*</span></label>
+                                            <!-- <select id="departmentSelect" name="departmentSelect" size="1">
+                                                <option value="" disabled selected>Choose Department</option>
+                                                <option></option>
+                                            </select> -->
                                             <select class="form-control" id="departmentSelect" name="departmentSelect"
                                                 size="1">
-                                                <option value="" disabled selected>Choose Department</option>
+                                                <option value="" disabled selected>Choose Subcategory</option>
                                                 <option></option>
                                             </select>
                                         </div>
