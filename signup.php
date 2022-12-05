@@ -177,8 +177,8 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                         <Option value="" disabled disabled selected>-Select Yor Section-</option>
                                         <Option value="Staff">Staff</option>
                                         <Option value="Student">Student</option>
-                                        <Option value="Lectures">Lectures</option>
-                                        <Option value="Othors">Othors</option>
+                                        <Option value="Lectures">Lecturer</option>
+                                        <Option value="Others">Others</option>
 
                                     </SELECT>
                                 </div>
@@ -187,9 +187,9 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                     <label>Select Your faculty</label>
                                     <select class="form-control" name="faculty" id="faculty" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Faculty-</option>
-                                        <option value="fas">Faculty Of Applied Science</option>
-                                        <option value="sidha">Faculty of Sidha Medicine</option>
-                                        <option value="bms">Faculty of Communication & Bussiness Studies</option>
+                                        <option value="FAS">Faculty Of Applied Science</option>
+                                        <option value="Sidha">Faculty of Siddha Medicine</option>
+                                        <option value="BMS">Faculty of Communication & Bussiness Studies</option>
                                     </select>
                                 </div>
 
@@ -197,10 +197,12 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                     <label>Select Your Department</label>
                                     <select class="form-control" name="department" id="department" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Department-</option>
-                                        <option value="cs">Department of Computer Science</option>
-                                        <option value="ps">Department of Physical Science</option>
-                                        <option value="bms">Department of Business & Management Studies </option>
-                                        <option value="lcs">Department of Language & Communication Studies </option>
+                                        <option value="CS">Department of Computer Science</option>
+                                        <option value="PS">Department of Physical Science</option>
+                                        <option value="BMS">Department of Business & Management Studies </option>
+                                        <option value="LCS">Department of Language & Communication Studies </option>
+                                        <option value="IT">Department of Information Technology </option>
+                                        <option value="SIDDHA">Department of siddha unit </option>
                                     </select>
                                 </div>
 

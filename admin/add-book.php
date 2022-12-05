@@ -125,29 +125,7 @@ echo $isbn;
                                                 required />
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>Choose Faculty<span style="color:red;">*</span></label>
-                                            <select class="form-control" id="faculty" size="1" name="faculty"
-                                                onchange="makeSubmenu(this.value)">
-                                                <option value="" disabled selected>Choose Faculty</option>
-                                                <option value="fas">Faculty Of Applied Science</option>
-                                                <option value="sidha">Faculty of Sidha Medicine</option>
-                                                <option value="fcbs">Faculty of Bussiness & Communication Studies
-                                                </option>
-                                                <option value="other">Others</option>
-                                            </select>
 
-
-                                            <!-- <button onclick="displaySelected()">show selected</button> -->
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Choose Department<span style="color:red;">*</span></label>
-                                            <select class="form-control" id="departmentSelect" name="departmentSelect"
-                                                size="1">
-                                                <option value="" disabled selected>Choose Department</option>
-                                                <option></option>
-                                            </select>
-                                        </div>
 
 
 
