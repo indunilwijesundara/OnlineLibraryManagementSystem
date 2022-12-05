@@ -164,8 +164,6 @@ else{?>
                     </div>
                 </div>
 
-
-
                 <div class="col-md-3 col-sm-3 col-xs-6" onclick="window.location = 'reg-others.php';">
                     <div class="alert alert-success back-widget-set text-center">
                         <img style="width:90px;height:70px;" src="assets/img/auth.png">
@@ -173,20 +171,6 @@ else{?>
                         Registered Others
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             </div>
         </div>

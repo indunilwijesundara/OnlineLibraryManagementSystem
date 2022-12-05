@@ -59,10 +59,10 @@ echo $isbn;
     <!-- Select sub category java script -->
     <script type="text/javascript">
     var subcategory = {
-        fas: ["Computer Science", "Physical Science"],
+        FAS: ["Computer Science", "Physical Science"],
         // sidha: [""],
-        fcbs: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
-        other: ['Novel', 'Translations']
+        FCBS: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
+        OTHERS: ['Novel', 'Translations']
     }
 
     function makeSubmenu(value) {

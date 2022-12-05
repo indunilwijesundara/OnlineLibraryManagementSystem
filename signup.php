@@ -188,7 +188,11 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                     <select class="form-control" name="faculty" id="faculty" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Faculty-</option>
                                         <option value="FAS">Faculty Of Applied Science</option>
+<<<<<<< HEAD
                                         <option value="Sidha">Faculty of Siddha Medicine</option>
+=======
+                                        <option value="SIDHA">Faculty of Sidha Medicine</option>
+>>>>>>> 3efe6c83b4b001245ea46d17affeb0762fa6d242
                                         <option value="BMS">Faculty of Communication & Bussiness Studies</option>
                                     </select>
                                 </div>
