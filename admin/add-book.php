@@ -62,7 +62,7 @@ echo $isbn;
         FAS: ["Computer Science", "Physical Science"],
         // sidha: [""],
         FCBS: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
-        OTHERS: ['Novel', 'Translations']
+        OTHER: ['Novel', 'Translations']
     }
 
     function makeSubmenu(value) {
@@ -134,7 +134,7 @@ echo $isbn;
                                                 <option value="SIDHA">Faculty of Sidha Medicine</option>
                                                 <option value="FCBS">Faculty of Bussiness & Communication Studies
                                                 </option>
-                                                <option value="OTHERS">Others</option>
+                                                <option value="OTHER">Other</option>
                                             </select>
                                             <!-- 
                                             <select id="faculty" size="1" onchange="makeSubmenu(this.value)">
