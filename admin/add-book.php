@@ -62,7 +62,7 @@ echo $isbn;
         FAS: ["Computer Science", "Physical Science"],
         // sidha: [""],
         FCBS: ["Department of Business & Management Studies", "Department of Language & Communication Studies"],
-        OTHERS: ['Novel', 'Translations']
+        OTHER: ['Novel', 'Translations']
     }
 
     function makeSubmenu(value) {
@@ -125,6 +125,40 @@ echo $isbn;
                                                 required />
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Choose Faculty<span style="color:red;">*</span></label>
+                                            <select class="form-control" id="faculty" size="1" name="faculty"
+                                                onchange="makeSubmenu(this.value)">
+                                                <option value="" disabled selected>Choose Faculty</option>
+                                                <option value="FAS">Faculty Of Applied Science</option>
+                                                <option value="SIDHA">Faculty of Sidha Medicine</option>
+                                                <option value="FCBS">Faculty of Bussiness & Communication Studies
+                                                </option>
+                                                <option value="OTHER">Other</option>
+                                            </select>
+                                            <!-- 
+                                            <select id="faculty" size="1" onchange="makeSubmenu(this.value)">
+                                                <option value="" disabled selected>Choose Category</option>
+                                                <option value="fas">Faculty Of Applied Science</option>
+                                                <option value="sidha">Faculty of Sidha Medicine</option>
+                                                <option value="fcbs">Faculty of Bussiness & Communication Studies
+                                                </option>
+                                            </select> -->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Choose Department<span style="color:red;">*</span></label>
+                                            <!-- <select id="departmentSelect" name="departmentSelect" size="1">
+                                                <option value="" disabled selected>Choose Department</option>
+                                                <option></option>
+                                            </select> -->
+                                            <select class="form-control" id="departmentSelect" name="departmentSelect"
+                                                size="1">
+                                                <option value="" disabled selected>Choose Subcategory</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+
+
 
 
 
@@ -177,7 +211,8 @@ echo $isbn;
                                             <label>ISBN Number<span style="color:red;">*</span></label>
                                             <input class="form-control" type="text" name="isbn" required="required"
                                                 autocomplete="off" />
-                                            <p class="help-block">An ISBN is an International Standard Book Number.ISBN
+                                            <p class="help-block">An ISBN is an International Standard Book
+                                                Number.ISBN
                                                 Must be unique</p>
                                         </div>
 
@@ -185,7 +220,8 @@ echo $isbn;
                                             <label>Upload here</label>
                                             <input name="file" type="file" required="required" class="form-control" />
                                         </div>
-                                        <center><button class="btn btn-primary" name="upload">Upload</button></center>
+                                        <center><button class="btn btn-primary" name="upload">Upload</button>
+                                        </center>
                                     </form>
 
 

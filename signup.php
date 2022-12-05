@@ -70,7 +70,7 @@ if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
     $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-   echo '<script>alert("Your Registration successfull and your student id is  "+"'.$StudentId.'")</script>';
+   echo '<script>alert("Your Registration successfull and your id is  "+"'.$StudentId.'")</script>';
 }
 else 
 {
@@ -155,7 +155,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                 <div class="form-group">
                                     <label>Enter Full Name</label><span style="color:red;">*</span>
                                     <input class="form-control" type="text" name="fullanme" autocomplete="off"
-                                        pattern="[a-zA-Z]{1,}" required />
+                                        pattern="[a-zA-Z ,.]+" required />
                                 </div>
 
 
@@ -188,12 +188,11 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                     <select class="form-control" name="faculty" id="faculty" autocomplete="off">
                                         <option value="" disabled disabled selected>-Select Your Faculty-</option>
                                         <option value="FAS">Faculty Of Applied Science</option>
-<<<<<<< HEAD
-                                        <option value="Sidha">Faculty of Siddha Medicine</option>
-=======
-                                        <option value="SIDHA">Faculty of Sidha Medicine</option>
->>>>>>> 3efe6c83b4b001245ea46d17affeb0762fa6d242
-                                        <option value="BMS">Faculty of Communication & Bussiness Studies</option>
+                                        <<<<<<< HEAD <option value="Sidha">Faculty of Siddha Medicine</option>
+                                            =======
+                                            <option value="SIDHA">Faculty of Sidha Medicine</option>
+                                            >>>>>>> 3efe6c83b4b001245ea46d17affeb0762fa6d242
+                                            <option value="BMS">Faculty of Communication & Bussiness Studies</option>
                                     </select>
                                 </div>
 
@@ -252,6 +251,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
             </div>
         </div>
     </div>
+
     <!-- CONTENT-WRAPPER SECTION END-->
     <?php include('includes/footer.php');?>
     <script src="assets/js/jquery-1.10.2.js"></script>

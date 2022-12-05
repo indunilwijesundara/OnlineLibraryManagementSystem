@@ -123,7 +123,7 @@ function valid() {
                                         autocomplete="off" required />
                                 </div>
 
-                                <button type="submit" name="change" class="btn btn-info">Chnage </button>
+                                <button type="submit" name="change" class="btn btn-info">Change </button>
                             </form>
                         </div>
                     </div>
